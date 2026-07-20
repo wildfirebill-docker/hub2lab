@@ -4,12 +4,13 @@
   <Description>Bidirectional GitHub &lt;-&gt; GitLab webhook sync service</Description>
   <Overview>hub2lab listens for webhooks from GitHub and GitLab and mirrors pushes, branches, tags, and repository events between them with loop prevention.</Overview>
   <Category>Tools:Utilities:</Category>
-  <Registry>hub2lab:latest</Registry>
+  <Registry>ghcr.io/wildfirebill-docker/hub2lab:latest</Registry>
   <Network type="bridge" mode="host"/>
   <Privileged>false</Privileged>
-  <Support>https://github.com/your-org/hub2lab</Support>
-  <Project>https://github.com/your-org/hub2lab</Project>
+  <Support>https://github.com/wildfirebill-docker/hub2lab</Support>
+  <Project>https://github.com/wildfirebill-docker/hub2lab</Project>
   <Shell>sh</Shell>
+  <Repository>wildfirebill-docker/hub2lab</Repository>
 
   <WebUI>http://[IP]:[PORT:3000]/health</WebUI>
 
@@ -19,6 +20,7 @@
   <Config Name="GITHUB_WEBHOOK_SECRET" Target="GITHUB_WEBHOOK_SECRET" Default="" Mode="" Description="GitHub webhook secret for signature verification" Type="text" Required="true" Mask="true"/>
   <Config Name="GITLAB_TOKEN" Target="GITLAB_TOKEN" Default="" Mode="" Description="GitLab PAT with api scope" Type="text" Required="true" Mask="true"/>
   <Config Name="GITLAB_WEBHOOK_SECRET" Target="GITLAB_WEBHOOK_SECRET" Default="" Mode="" Description="GitLab webhook secret token" Type="text" Required="true" Mask="true"/>
+  <Config Name="MAPPING_FILE" Target="MAPPING_FILE" Default="/app/mapping.json" Mode="" Description="Path to mapping.json inside container" Type="text" Required="false">/app/mapping.json</Config>
   <Config Name="GITLAB_BASE_URL" Target="GITLAB_BASE_URL" Default="https://gitlab.com" Mode="" Description="GitLab instance URL" Type="text" Required="false"/>
   <Config Name="SYNC_MARKER" Target="SYNC_MARKER" Default="[hub2lab]" Mode="" Description="Commit marker to prevent sync loops" Type="text" Required="false"/>
   <Config Name="LOG_LEVEL" Target="LOG_LEVEL" Default="info" Mode="" Description="Log level (debug|info|warn|error)" Type="text" Required="false"/>
