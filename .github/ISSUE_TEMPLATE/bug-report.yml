@@ -1,0 +1,22 @@
+name: Bug Report
+description: File a bug report
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Relevant hub2lab logs (from `LOG_DIR`)
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Docker tag or commit hash

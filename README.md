@@ -8,6 +8,19 @@
 
 Bidirectional GitHub ↔ GitLab repository sync service. Mirrors pushes, branches, tags, and repository events between GitHub organizations and GitLab groups with loop prevention.
 
+## Features
+
+- **Bidirectional sync** — pushes, branches, tags, and repo events flow both ways
+- **Loop prevention** — commit markers prevent infinite sync loops
+- **Auto-sync mode** — omit `repos` in mapping.json to sync every repo in the org
+- **Explicit mapping** — per-repo control when names differ between sides
+- **Dockerized** — `docker pull ghcr.io/wildfirebill-docker/hub2lab` with healthcheck
+- **Unraid ready** — community app template included (`hub2lab.xml`)
+- **Self-hosted** — deploy on any VPS, NAS, or homelab with Node.js ≥ 20
+- **Webhook security** — HMAC-SHA256 (GitHub) and shared secret (GitLab) verification
+- **File logging** — configurable rotation, 10 MB per file, 5 retained
+- **Repository lifecycle** — auto-create repos on GitLab when created on GitHub
+
 ## How It Works
 
 hub2lab runs as an HTTP server that receives webhooks from both GitHub and GitLab. When a push, branch/tag creation, or deletion arrives from one side, it replays the action on the other side via the respective API.
