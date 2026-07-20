@@ -1,0 +1,25 @@
+{
+  "mappings": [
+    {
+      "github_org": "acme-corp",
+      "gitlab_group": "acme",
+      "repos": {
+        "frontend": "frontend",
+        "backend-api": "backend-api",
+        "docs": "documentation"
+      }
+    },
+    {
+      "github_org": "big-org",
+      "gitlab_group": "big-org",
+      "repos": {
+        "repo-a": "repo-a",
+        "repo-b": "repo-b"
+      }
+    },
+    {
+      "github_org": "oss-town",
+      "gitlab_group": "oss-mirrors"
+    }
+  ]
+}

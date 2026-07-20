@@ -1,0 +1,16 @@
+services:
+  hub2lab:
+    build: .
+    container_name: hub2lab
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./.env:/app/.env
+      - ./mapping.json:/app/mapping.json
+      - mirrors:/app/mirrors
+      - logs:/app/logs
+
+volumes:
+  mirrors:
+  logs:

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>hub2lab</Name>
+  <Description>Bidirectional GitHub &lt;-&gt; GitLab webhook sync service</Description>
+  <Overview>hub2lab listens for webhooks from GitHub and GitLab and mirrors pushes, branches, tags, and repository events between them with loop prevention.</Overview>
+  <Category>Tools:Utilities:</Category>
+  <Registry>hub2lab:latest</Registry>
+  <Network type="bridge" mode="host"/>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/your-org/hub2lab</Support>
+  <Project>https://github.com/your-org/hub2lab</Project>
+  <Shell>sh</Shell>
+
+  <WebUI>http://[IP]:[PORT:3000]/health</WebUI>
+
+  <Config Name="Port" Target="3000" Default="3000" Mode="port" Description="Webhook server port" Type="integer" Required="true">3000</Config>
+
+  <Config Name="GITHUB_TOKEN" Target="GITHUB_TOKEN" Default="" Mode="" Description="GitHub PAT with repo scope" Type="text" Required="true" Mask="true"/>
+  <Config Name="GITHUB_WEBHOOK_SECRET" Target="GITHUB_WEBHOOK_SECRET" Default="" Mode="" Description="GitHub webhook secret for signature verification" Type="text" Required="true" Mask="true"/>
+  <Config Name="GITLAB_TOKEN" Target="GITLAB_TOKEN" Default="" Mode="" Description="GitLab PAT with api scope" Type="text" Required="true" Mask="true"/>
+  <Config Name="GITLAB_WEBHOOK_SECRET" Target="GITLAB_WEBHOOK_SECRET" Default="" Mode="" Description="GitLab webhook secret token" Type="text" Required="true" Mask="true"/>
+  <Config Name="GITLAB_BASE_URL" Target="GITLAB_BASE_URL" Default="https://gitlab.com" Mode="" Description="GitLab instance URL" Type="text" Required="false"/>
+  <Config Name="SYNC_MARKER" Target="SYNC_MARKER" Default="[hub2lab]" Mode="" Description="Commit marker to prevent sync loops" Type="text" Required="false"/>
+  <Config Name="LOG_LEVEL" Target="LOG_LEVEL" Default="info" Mode="" Description="Log level (debug|info|warn|error)" Type="text" Required="false"/>
+  <Config Name="LOG_DIR" Target="LOG_DIR" Default="/app/logs" Mode="" Description="Log directory inside container" Type="text" Required="false">/app/logs</Config>
+
+  <Config Name="Mapping File" Target="/app/mapping.json" Default="/mnt/user/appdata/hub2lab/mapping.json" Mode="rw" Description="Mapping JSON file (must exist)" Type="path" Required="true">/mnt/user/appdata/hub2lab/mapping.json</Config>
+  <Config Name="Mirror Data" Target="/app/mirrors" Default="/mnt/user/appdata/hub2lab/mirrors" Mode="rw" Description="Persistent git mirror storage" Type="path" Required="false">/mnt/user/appdata/hub2lab/mirrors</Config>
+  <Config Name="Log Files" Target="/app/logs" Default="/mnt/user/appdata/hub2lab/logs" Mode="rw" Description="Persistent log storage" Type="path" Required="false">/mnt/user/appdata/hub2lab/logs</Config>
+</Container>
