@@ -1,5 +1,11 @@
 # hub2lab
 
+<p align="center">
+  <a href="https://github.com/wildfirebill-docker/hub2lab/releases"><img src="https://img.shields.io/github/v/release/wildfirebill-docker/hub2lab?style=flat-square&label=release" alt="Release"></a>
+  <a href="https://github.com/wildfirebill-docker/hub2lab/actions/workflows/docker.yml"><img src="https://img.shields.io/github/actions/workflow/status/wildfirebill-docker/hub2lab/docker.yml?style=flat-square&label=docker" alt="Docker build"></a>
+  <a href="https://github.com/wildfirebill-docker/hub2lab/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License"></a>
+</p>
+
 Bidirectional GitHub ↔ GitLab repository sync service. Mirrors pushes, branches, tags, and repository events between GitHub organizations and GitLab groups with loop prevention.
 
 ## How It Works

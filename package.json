@@ -2,6 +2,7 @@
   "name": "hub2lab",
   "version": "1.0.0",
   "description": "Bidirectional GitHub ↔ GitLab sync service",
+  "keywords": ["github", "gitlab", "webhook", "sync", "mirror", "bidirectional", "devops", "repository"],
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
